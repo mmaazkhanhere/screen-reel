@@ -12,7 +12,7 @@ const NavbarItem: React.FC<Props> = (props: Props) => {
         <Link
             href={props.href}
             className={`text-white font-semibold text-lg 
-        ${props.current ? 'underline decoration-2 underline-offset-2 cursor-default' :
+            ${props.current ? 'underline decoration-2 underline-offset-2 cursor-default' :
                     'cursor-pointer hover:underline hover:decoration-white'}`}
         >
             {props.label}

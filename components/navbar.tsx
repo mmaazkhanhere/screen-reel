@@ -13,17 +13,21 @@ const Navbar = (props: Props) => {
     return (
         <>
             <nav
-                className='h-[25vh] relative hidden lg:block'
+                className='h-[30vh] relative hidden lg:block'
                 style={{
                     backgroundImage: `url(${imageUrl})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
                 }}
             >
-                <div className='absolute top-0 left-0 w-full h-full backdrop-blur-sm
-            bg-red-500/40'>
-                    <nav className='max-w-[1600px] mx-auto hidden lg:flex items-center 
-                justify-between w-full'>
+                <div
+                    className='absolute top-0 left-0 w-full h-full backdrop-blur-sm
+                    bg-red-500/40 px-2'
+                >
+                    <nav
+                        className='lg:max-w-[1600px] mx-auto hidden lg:flex items-center 
+                        justify-between w-full'
+                    >
                         {/*Logo */}
                         <div className='flex items-center justify-center'>
                             <Image

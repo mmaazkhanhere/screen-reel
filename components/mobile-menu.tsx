@@ -13,7 +13,7 @@ const MobileMenu: React.FC<Props> = (props: Props) => {
 
     return (
         <div
-            className='bg-white w-44 absolute top-14 right-2 pt-3
+            className='bg-white w-44 absolute top-14 left-2 pt-3
             flex flex-col border-2 border-gray rounded-xl text-sm'
         >
             <div className='flex flex-col items-center justify-center'>

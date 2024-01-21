@@ -1,3 +1,4 @@
+import HeroSearch from '@/components/hero-search'
 import Navbar from '@/components/navbar'
 import React from 'react'
 
@@ -7,6 +8,7 @@ const Home = (props: Props) => {
   return (
     <>
       <Navbar />
+      <HeroSearch />
     </>
   )
 }

@@ -1,4 +1,5 @@
 import HeroSearch from '@/components/hero-search'
+import MoviesList from '@/components/movies-list'
 import Navbar from '@/components/navbar'
 import React from 'react'
 
@@ -9,6 +10,7 @@ const Home = (props: Props) => {
     <>
       <Navbar />
       <HeroSearch />
+      <MoviesList title='Trending' />
     </>
   )
 }

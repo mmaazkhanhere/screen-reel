@@ -1,14 +1,15 @@
-/*React custom hook must start with the word 'use' that's why
-they are named as useMoviesList */
+"use client"
+import fetcher from "@/libs/fetcher";
+import useSWR from 'swr'
 
-import useSwr from 'swr'
-import fetcher from '@/libs/fetcher'
+const useMoviesList = () => {
+    const { data, error, isLoading } = useSWR('/api/movies', fetcher, {
+        revalidateIfStale: false,
+        revalidateOnFocus: false,
+        revalidateOnReconnect: false,
+    })
 
-function useMoviesList() {
-    const { data, error, isLoading } = useSwr('/api/movies', fetcher)
-
-    return { data, error, isLoading }
+    return { data, isLoading, error }
 }
 
-
-export default useMoviesList;
+export default useMoviesList

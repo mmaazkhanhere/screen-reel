@@ -17,7 +17,7 @@ const MoviesList: React.FC<Props> = (props: Props) => {
     setActiveCategory(category);
   };
 
-  console.log(props.data)
+  console.log(props.data[0])
 
   return (
     <section

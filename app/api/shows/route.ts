@@ -3,16 +3,16 @@ import prismadb from "@/libs/prismadb"
 
 export const GET = async (request: NextRequest) => {
     try {
-        const movies = await prismadb.mediaModel.findMany({
+        const shows = await prismadb.mediaModel.findMany({
             where: {
-                category: 'Movie',
+                category: 'Show',
             },
         });
-        const response = NextResponse.json({ movies })
+        const response = NextResponse.json({ shows })
         return response;
 
     } catch (error) {
         console.error(error)
-        throw new Error("ERROR AT GET MOVIES")
+        throw new Error("ERROR AT GET SHOW")
     }
 }

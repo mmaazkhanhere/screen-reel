@@ -6,15 +6,15 @@ type Props = {
     data: IMovie
 }
 
-const MovieCard = (props: Props) => {
+const MediaCard = (props: Props) => {
     console.log(props.data)
     return (
         <section
             className='group relative h-[12vw]'
         >
-            Movie Card
+            {props.data.category}
         </section>
     )
 }
 
-export default MovieCard
+export default MediaCard

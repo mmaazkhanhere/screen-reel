@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Movie{
+model MediaModel {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   title String
   overview String
@@ -21,19 +21,6 @@ model Movie{
   genre String
   releaseYear String
   age String
-  duration String
-}
-
-model TVShow{
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  title String
-  overview String
-  category String
-  videoSource String
-  trailerUrl String
-  posterUrl String
-  genre String
-  releaseYear String
-  totalSeasons String
-  age String
+  duration String?
+  totalSeasons String?
 }

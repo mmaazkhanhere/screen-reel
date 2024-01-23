@@ -18,6 +18,7 @@ export const GET = async (request: NextRequest) => {
         }
 
         const response = NextResponse.json({ media });
+
         return response;
     } catch (error) {
         console.error(error);

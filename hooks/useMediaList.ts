@@ -6,8 +6,6 @@ import fetcher from '@/libs/fetcher';
 
 const useMediaList = (category?: string) => {
 
-    console.log(category)
-
     const url = category ? `/api/media?category=${category}` : '/api/media';
 
     const { data, error, isLoading } = useSWR(url, fetcher, {

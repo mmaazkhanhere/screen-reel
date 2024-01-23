@@ -2,8 +2,6 @@
 import { IMovie } from '@/interfaces';
 import React, { useState } from 'react';
 import MediaCard from './media-card';
-import useMoviesList from '@/hooks/useMoviesList';
-import useShows from '@/hooks/useShowsList';
 import useMediaList from '@/hooks/useMediaList';
 
 type Props = {
@@ -18,8 +16,6 @@ const MediaList: React.FC<Props> = (props: Props) => {
     setActiveCategory(category);
   };
 
-  // const { movies } = useMoviesList();
-  // const { shows } = useShows();
   const { media } = useMediaList(activeCategory);
 
   if (!media) {
@@ -30,29 +26,26 @@ const MediaList: React.FC<Props> = (props: Props) => {
     )
   }
 
-  console.log(media.media);
-  console.log(activeCategory)
-
   return (
     <section className='flex flex-col items-start justify-center mt-[250px] max-w-[1600px] mx-auto px-2'>
       <div className='flex items-center justify-center gap-5'>
         <h2 className='text-4xl font-semibold'>{props.title}</h2>
         <div className='flex items-center justify-center gap-2'>
           <button
-            className={`px-4 py-2 rounded-xl font-bold ${activeCategory === 'movie'
+            className={`px-4 py-2 rounded-xl font-bold ${activeCategory === 'Movie'
               ? 'bg-red-500 text-white'
               : 'bg-white text-black border border-gray-400'
               }`}
-            onClick={() => handleCategoryChange('movie')}
+            onClick={() => handleCategoryChange('Movie')}
           >
             Movies
           </button>
           <button
-            className={`px-4 py-2 rounded-xl font-bold ${activeCategory === 'show'
+            className={`px-4 py-2 rounded-xl font-bold ${activeCategory === 'Show'
               ? 'bg-red-500 text-white'
               : 'bg-white text-black border border-gray-400'
               }`}
-            onClick={() => handleCategoryChange('show')}
+            onClick={() => handleCategoryChange('Show')}
           >
             TV Shows
           </button>

@@ -1,4 +1,4 @@
-export interface IMovie {
+export interface IMedia {
     id: string
     title: string
     overview: string
@@ -9,5 +9,7 @@ export interface IMovie {
     genre: string
     releaseYear: string
     age: string
-    duration: string
+    duration?: string
+    totalSeasons?: string
+    episodes?: string
 }

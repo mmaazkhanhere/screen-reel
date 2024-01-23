@@ -23,4 +23,5 @@ model MediaModel {
   age String
   duration String?
   totalSeasons String?
+  episodes String?
 }

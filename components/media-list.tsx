@@ -1,5 +1,5 @@
 "use client"
-import { IMovie } from '@/interfaces';
+import { IMedia } from '@/interfaces';
 import React, { useState } from 'react';
 import MediaCard from './media-card';
 import useMediaList from '@/hooks/useMediaList';
@@ -27,23 +27,35 @@ const MediaList: React.FC<Props> = (props: Props) => {
   }
 
   return (
-    <section className='flex flex-col items-start justify-center mt-[250px] max-w-[1600px] mx-auto px-2'>
+    <section
+      className='flex flex-col items-start justify-center mt-[250px] 
+    max-w-[1600px] mx-auto px-2'
+    >
       <div className='flex items-center justify-center gap-5'>
-        <h2 className='text-4xl font-semibold'>{props.title}</h2>
+        {/*Title of Section */}
+        <h2 className='text-4xl font-semibold'>
+          {props.title}
+        </h2>
+
+        {/*Buttons to Switch Category */}
         <div className='flex items-center justify-center gap-2'>
+          {/*Movies Button */}
           <button
-            className={`px-4 py-2 rounded-xl font-bold ${activeCategory === 'Movie'
-              ? 'bg-red-500 text-white'
-              : 'bg-white text-black border border-gray-400'
+            className={`px-4 py-2 rounded-xl font-bold 
+            ${activeCategory === 'Movie'
+                ? 'bg-red-500 text-white'
+                : 'bg-white text-black border border-gray-400'
               }`}
             onClick={() => handleCategoryChange('Movie')}
           >
             Movies
           </button>
+          {/*Show Button */}
           <button
-            className={`px-4 py-2 rounded-xl font-bold ${activeCategory === 'Show'
-              ? 'bg-red-500 text-white'
-              : 'bg-white text-black border border-gray-400'
+            className={`px-4 py-2 rounded-xl font-bold 
+            ${activeCategory === 'Show'
+                ? 'bg-red-500 text-white'
+                : 'bg-white text-black border border-gray-400'
               }`}
             onClick={() => handleCategoryChange('Show')}
           >
@@ -51,10 +63,11 @@ const MediaList: React.FC<Props> = (props: Props) => {
           </button>
         </div>
       </div>
+
       {/* Movies List */}
-      <div className='grid grid-cols-4 gap-2'>
+      <div className='grid grid-cols-4 gap-10'>
         {
-          media.media.map((item: IMovie) => (
+          media.media.map((item: IMedia) => (
             <MediaCard key={item.id} data={item} />
           ))
         }

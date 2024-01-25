@@ -11,7 +11,7 @@ const Navbar = (props: Props) => {
     const imageUrl: string = '/images/nav-hero.jpg'
 
     return (
-        <>
+        <React.Fragment>
             <nav
                 className='h-[30vh] relative hidden lg:block'
                 style={{
@@ -22,10 +22,10 @@ const Navbar = (props: Props) => {
             >
                 <div
                     className='absolute top-0 left-0 w-full h-full backdrop-blur-sm
-                    bg-red-500/40 px-2'
+                    bg-red-500/50 px-2 py-1'
                 >
                     <nav
-                        className='lg:max-w-[1600px] mx-auto hidden lg:flex items-center 
+                        className='max-w-[1600px] mx-auto hidden lg:flex items-center 
                         justify-between w-full'
                     >
                         {/*Logo */}
@@ -36,7 +36,8 @@ const Navbar = (props: Props) => {
                                 width={90}
                                 height={90}
                             />
-                            <p className='text-3xl font-black uppercase text-white'>
+                            <p className='text-3xl font-black uppercase 
+                            text-white -ml-5'>
                                 ScreenReel
                             </p>
                         </div>
@@ -52,7 +53,7 @@ const Navbar = (props: Props) => {
                         <div>
                             <button
                                 className='bg-white px-6 py-2 rounded-lg text-black
-                        font-bold'
+                            font-bold'
                             >
                                 Login
                             </button>
@@ -62,11 +63,11 @@ const Navbar = (props: Props) => {
             </nav>
             {/*Mobile Menu */}
             <nav
-                className='lg:hidden block'
+                className='lg:hidden'
             >
                 <MobileNavbar />
             </nav>
-        </>
+        </React.Fragment>
 
     )
 }

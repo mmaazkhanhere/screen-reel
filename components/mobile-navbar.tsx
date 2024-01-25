@@ -20,7 +20,7 @@ const MobileNavbar = (props: Props) => {
 
     return (
         <div
-            className='h-[20vh] md:h-[30vh] relative '
+            className='h-[23vh] md:h-[30vh] relative w-full '
             style={{
                 backgroundImage: `url(${imageUrl})`,
                 backgroundSize: 'cover',

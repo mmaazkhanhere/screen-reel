@@ -1,6 +1,7 @@
 import { IMedia } from '@/interfaces'
 import Image from 'next/image'
 import React from 'react'
+import { PlayIcon } from '@heroicons/react/24/solid'
 
 type Props = {
     data: IMedia
@@ -10,27 +11,34 @@ const MediaCard = (props: Props) => {
     console.log(props.data)
     return (
         <section
-            className='group h-[12vw] mt-10'
+            className='group mt-5'
         >
-            <div className='flex flex-col items-start justify-center 
-            max-w-[380px] mx-auto group-hover:scale-110 
-            group-hover:cursor-pointer transform duration-500
-            group-hover:bg-slate-500/50'
+            <div
+                className='flex flex-col items-start justify-center 
+                max-w-[90vw] mx-auto group-hover:scale-110 
+                group-hover:cursor-pointer transform duration-500'
             >
                 {/*Image */}
-                <div>
-                    <div className='relative'>
-                        <Image
-                            src={props.data.posterUrl}
-                            alt={props.data.title}
-                            width={350}
-                            height={350}
-                        />
-                    </div>
 
+                <div className='relative'>
+                    <Image
+                        src={props.data.posterUrl}
+                        alt={props.data.title}
+                        width={400}
+                        height={350}
+                        className='transition-opacity group-hover:opacity-80'
+                    />
+                    <div className='absolute inset-0 flex items-center 
+                    justify-center hover:bg-black/50 opacity-0 
+                    group-hover:opacity-100 
+                    transition-opacity'
+                    >
+                        <PlayIcon className='w-14 h-14 text-red-500' />
+                    </div>
                 </div>
+
                 {/*Title of the movie or show */}
-                <h2 className='text-lg font-semibold mt-2'>
+                <h2 className='md:text-lg font-semibold mt-2'>
                     {props.data.title}
                 </h2>
                 {/*Detail of Movie */}
@@ -41,13 +49,13 @@ const MediaCard = (props: Props) => {
                         >
                             <div
                                 className='flex items-end justify-center 
-                                gap-4 text-sm text-gray-600'
+                                gap-2 lg:gap-4 text-xs md:text-sm text-gray-600'
                             >
                                 <span>{props.data.releaseYear}</span>
                                 <span>{props.data.duration}</span>
                             </div>
                             <div
-                                className='border border-gray-400 text-sm 
+                                className='border border-gray-400 text-xs md:text-sm 
                             text-gray-600 rounded-lg p-1'
                             >
                                 {props.data.category}
@@ -64,7 +72,7 @@ const MediaCard = (props: Props) => {
                         >
                             <div
                                 className='flex items-end justify-center 
-                                gap-4 text-sm text-gray-600'
+                                gap-2 lg:gap-4 text-xs lg:text-sm text-gray-600'
                             >
                                 <span>SS {props.data.totalSeasons}</span>
                                 <span>EPS {props.data.episodes}</span>
@@ -80,7 +88,7 @@ const MediaCard = (props: Props) => {
                 }
             </div>
 
-        </section>
+        </section >
     )
 }
 

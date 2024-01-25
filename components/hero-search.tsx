@@ -7,7 +7,7 @@ type Props = {}
 const HeroSearch = (props: Props) => {
     return (
         <section
-            className='relative -mt-10 lg:-mt-32'>
+            className='relative -mt-12 lg:-mt-32'>
             <div
                 className='absolute text-center flex flex-col items-center 
                 justify-center w-full z-20 gap-4 left-2 lg:left-0'

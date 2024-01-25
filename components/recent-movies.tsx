@@ -2,16 +2,16 @@
 import { IMedia } from '@/interfaces';
 import React from 'react';
 import MediaCard from './media-card';
-import useNewReleaseList from '@/hooks/useNewReleaseList';
+import useNewMoviesList from '@/hooks/useNewMoviesList';
 import LoadingSkeleton from './loading-skeletion';
 
 type Props = {
     title: string;
 };
 
-const NewRelease: React.FC<Props> = (props: Props) => {
+const RecentMovies: React.FC<Props> = (props: Props) => {
 
-    const { newRelease, isLoading } = useNewReleaseList('2023');
+    const { newMovies, isLoading } = useNewMoviesList('Movie');
 
     if (isLoading) {
         // Loading skeleton or placeholder
@@ -39,7 +39,7 @@ const NewRelease: React.FC<Props> = (props: Props) => {
 
             {/* Movies List */}
             <div className='flex gap-5 lg:gap-10 flex-wrap justify-start items-center w-full mt-5'>
-                {newRelease.newRelease.map((item: IMedia) => (
+                {newMovies.newMovies.map((item: IMedia) => (
                     <MediaCard key={item.id} data={item} />
                 ))}
             </div>
@@ -47,4 +47,4 @@ const NewRelease: React.FC<Props> = (props: Props) => {
     );
 };
 
-export default NewRelease;
+export default RecentMovies;

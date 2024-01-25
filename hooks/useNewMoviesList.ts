@@ -2,9 +2,9 @@
 import fetcher from '@/libs/fetcher'
 import useSWR from 'swr'
 
-const useNewReleaseList = (year: string) => {
+const useNewMoviesList = (category: string) => {
 
-    const url = `/api/media/recent?year=${year}`
+    const url = `/api/movies/recent?category=${category}`
 
     const { data, error, isLoading } = useSWR(url, fetcher, {
         revalidateIfStale: false,
@@ -13,11 +13,11 @@ const useNewReleaseList = (year: string) => {
     })
 
     return {
-        newRelease: data,
+        newMovies: data,
         error,
         isLoading
     }
 }
 
-export default useNewReleaseList
+export default useNewMoviesList
 

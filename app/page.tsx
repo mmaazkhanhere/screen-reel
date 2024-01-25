@@ -2,7 +2,8 @@ import HeroSearch from '@/components/hero-search'
 import Navbar from '@/components/navbar'
 import React from 'react'
 import TrendingList from '@/components/trending-list'
-import NewRelease from '@/components/new-release'
+import RecentMovies from '@/components/recent-movies'
+import RecentShows from '@/components/recent-shows'
 
 type Props = {}
 
@@ -13,7 +14,8 @@ const Home = (props: Props) => {
       <Navbar />
       <HeroSearch />
       <TrendingList title='Trending' />
-      <NewRelease title='New Release' />
+      <RecentMovies title='Latest Movies' />
+      <RecentShows title='Latest TV Shows' />
     </>
   )
 }

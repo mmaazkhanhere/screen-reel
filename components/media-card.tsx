@@ -15,7 +15,7 @@ const MediaCard = (props: Props) => {
         >
             <div
                 className='flex flex-col items-start justify-center 
-                max-w-[90vw] mx-auto group-hover:scale-110 
+                max-w-[70vw] mx-auto group-hover:scale-110 
                 group-hover:cursor-pointer transform duration-500'
             >
                 {/*Image */}
@@ -24,8 +24,8 @@ const MediaCard = (props: Props) => {
                     <Image
                         src={props.data.posterUrl}
                         alt={props.data.title}
-                        width={400}
-                        height={350}
+                        width={360}
+                        height={360}
                         className='transition-opacity group-hover:opacity-80'
                     />
                     <div className='absolute inset-0 flex items-center 

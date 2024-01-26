@@ -4,6 +4,7 @@ import React from 'react'
 import TrendingList from '@/components/trending-list'
 import RecentMovies from '@/components/recent-movies'
 import RecentShows from '@/components/recent-shows'
+import ComingSoon from '@/components/coming-soon'
 
 type Props = {}
 
@@ -16,6 +17,7 @@ const Home = (props: Props) => {
       <TrendingList title='Trending' />
       <RecentMovies title='Latest Movies' />
       <RecentShows title='Latest TV Shows' />
+      <ComingSoon title='Coming Soon' />
     </>
   )
 }

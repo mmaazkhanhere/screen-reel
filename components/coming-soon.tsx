@@ -18,7 +18,7 @@ const ComingSoon: React.FC<Props> = (props: Props) => {
         return (
             <section
                 className="flex flex-col items-start justify-center mt-24 
-            lg:mt-[150px] max-w-[1600px] mx-auto px-2 gap-4"
+                lg:mt-[150px] max-w-[1600px] mx-auto px-2 gap-4"
             >
                 <h2 className="text-2xl lg:text-4xl font-semibold">
                     {props.title}
@@ -31,7 +31,7 @@ const ComingSoon: React.FC<Props> = (props: Props) => {
     return (
         <section
             className='flex flex-col items-start justify-center mt-24 
-        lg:mt-[100px] max-w-[1600px] mx-auto px-2'>
+            lg:mt-[100px] max-w-[1600px] mx-auto px-2'>
             <div className='flex items-center justify-center gap-5'>
                 {/*Title of Section */}
                 <h2 className='text-2xl lg:text-4xl font-semibold'>{props.title}</h2>

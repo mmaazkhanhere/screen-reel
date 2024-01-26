@@ -36,7 +36,7 @@ const TrendingList: React.FC<Props> = (props: Props) => {
   return (
     <section
       className='flex flex-col items-start justify-center mt-24 lg:mt-[250px] 
-    max-w-[1600px] mx-auto px-2'
+      max-w-[1600px] mx-auto px-2'
     >
       <div className='flex items-center justify-center gap-5'>
 

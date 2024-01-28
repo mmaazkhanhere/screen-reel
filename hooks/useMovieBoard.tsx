@@ -13,7 +13,7 @@ const useMovieBoard = () => {
     })
 
     return {
-        randomMovies: data,
+        randomMedia: data,
         error,
         isLoading
     }

@@ -95,6 +95,8 @@ const Details: React.FC<Props> = (props: Props) => {
                         </p>
 
                         <div
+                            className='hover:scale-95 transform duration-300
+                            cursor-pointer'
                             onClick={handleTrailerDetail}
                         >
                             <FaYoutube className='rounded-lg w-7 h-7 fill-red-500'

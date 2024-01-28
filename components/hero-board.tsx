@@ -12,11 +12,11 @@ type Props = {}
 const HeroBoard = (props: Props) => {
 
     const [showDetails, setShowDetails] = useState<boolean>(false)
-    const { randomMovies } = useMovieBoard()
+    const { randomMedia } = useMovieBoard()
 
-    if (!randomMovies) {
+    if (!randomMedia) {
         return (
-            <section className='max-w-[1600px] mx-auto h-[35vw]'>
+            <section className='max-w-[1600px] mx-auto'>
                 <LoadingSkeleton />
             </section>
         )
@@ -26,21 +26,15 @@ const HeroBoard = (props: Props) => {
         setShowDetails(true)
     }
 
-
-    console.log(randomMovies)
-    console.log(randomMovies.videoSource)
-    console.log(randomMovies.trailerUrl)
-    console.log(showDetails)
-
     return (
         <section
-            className='relative max-w-[1600px] mx-auto h-[40vw]'
+            className='relative max-w-[1600px] mx-auto border border-black'
         >
-            <div className='relative w-full h-[40vw]'>
+            <div className='relative w-full'>
                 {
-                    randomMovies.videoSource ? (
+                    randomMedia.videoSource ? (
                         <video
-                            src={randomMovies.videoSource}
+                            src={randomMedia.videoSource}
                             autoPlay
                             loop
                             muted
@@ -48,8 +42,8 @@ const HeroBoard = (props: Props) => {
                         />
                     ) : (
                         <iframe
-                            src={randomMovies.trailerUrl}
-                            className='w-full h-[40vw]'
+                            src={randomMedia.trailerUrl}
+                            className='w-full h-[70vw] lg:h-[40vw]'
                         />
                     )
                 }
@@ -57,27 +51,29 @@ const HeroBoard = (props: Props) => {
                 {/*Background Video */}
 
                 <div
-                    className='absolute top-[40%] left-[5%] flex-auto flex-col items-center 
-                    justify-start text-white z-10 w-[50%]'
+                    className='absolute top-[35%] left-[5%] flex-auto 
+                    flex-col items-center justify-start text-white z-10 w-[50%]'
                 >
                     {/*Movie Details */}
-                    <h2 className='text-5xl font-black'>
-                        {randomMovies.title}
+                    <h2 className='hidden md:block text-4xl lg:text-5xl font-black'>
+                        {randomMedia.title}
                     </h2>
 
                     {/*Movie Overview */}
-                    <p className='text-lg font-medium mt-5'>
-                        {randomMovies.overview}
+                    <p className='hidden md:block lg:text-lg font-medium mt-5'>
+                        {randomMedia.overview}
                     </p>
 
                     {
 
                     }
                     {/*Buttons */}
-                    <div className='flex items-center justify-start gap-5 mt-5'>
+                    <div
+                        className='hidden md:flex items-center justify-start gap-5 mt-5'
+                    >
 
                         {
-                            randomMovies.videoSource && (
+                            randomMedia.videoSource && (
                                 <PlayButton />
                             )
                         }
@@ -85,7 +81,8 @@ const HeroBoard = (props: Props) => {
                         {/*Details Button */}
                         <button
                             onClick={handleShowDetail}
-                            className='bg-white text-red-500 hover:scale-95 px-6 py-2 
+                            className='bg-white text-red-500 hover:scale-95 
+                            px-4 lg:px-6 py-1.5 lg:py-2 text-sm lg:text-base 
                             rounded-xl transform duration-300'
                         >
                             Details
@@ -93,7 +90,7 @@ const HeroBoard = (props: Props) => {
                         {
                             showDetails && (
                                 <Details
-                                    mediaDetails={randomMovies}
+                                    mediaDetails={randomMedia}
                                     setShowDetails={setShowDetails}
                                 />
                             )

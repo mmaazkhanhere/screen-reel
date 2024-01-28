@@ -23,7 +23,7 @@ const MobileMenu: React.FC<Props> = (props: Props) => {
                     Home
                 </Link>
                 <Link
-                    href='/movies'
+                    href='/movies-page'
                     className='border-b w-full text-center py-1'>
                     Movies
                 </Link>

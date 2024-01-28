@@ -9,7 +9,7 @@ const Navbar = (props: Props) => {
         <React.Fragment>
             <nav
                 className='max-w-[1600px] mx-auto hidden lg:flex items-center 
-                        justify-between w-full'
+                        justify-between w-full px-2'
             >
                 {/*Logo */}
                 <div className='flex items-center justify-center'>
@@ -29,7 +29,7 @@ const Navbar = (props: Props) => {
                 <div className='flex items-center justify-start gap-10'>
                     <NavbarItem label='Home' href='/' current />
                     <NavbarItem label='Genre' href='/' />
-                    <NavbarItem label='Movies' href='/movies' />
+                    <NavbarItem label='Movies' href='/movies-page' />
                     <NavbarItem label='TV Shows' href='/shows' />
 
                 </div>

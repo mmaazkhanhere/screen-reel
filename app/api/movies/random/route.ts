@@ -6,8 +6,7 @@ export const GET = async () => {
 
         const totalMovies: number = await prismadb.mediaModel.count({
             where: {
-                category: 'Movie',
-                videoSource: { not: '' }
+                category: 'Movie'
             }
         })
 
@@ -18,7 +17,6 @@ export const GET = async () => {
         const randomMovie = await prismadb.mediaModel.findMany({
             where: {
                 category: 'Movie',
-                videoSource: { not: '' }
             },
             take: 1,
             skip: randomIndex

@@ -1,7 +1,10 @@
+"use client"
+
 import { IMedia } from '@/interfaces'
-import React from 'react'
+import React, { useState } from 'react'
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import { FaYoutube } from "react-icons/fa6";
+import TrailerModal from './trailer-modal';
 
 type Props = {
     mediaDetails: IMedia,
@@ -9,6 +12,14 @@ type Props = {
 }
 
 const Details: React.FC<Props> = (props: Props) => {
+
+
+    const [showTrailer, setShowTrailer] = useState<boolean>(false)
+
+    const handleTrailerDetail = () => {
+        setShowTrailer(true)
+    }
+
     return (
         <section
             className="fixed inset-0 z-50 overflow-auto bg-black/70 flex 
@@ -32,12 +43,22 @@ const Details: React.FC<Props> = (props: Props) => {
                 <div className="flex-auto flex-col items-start justify-center 
                 w-full">
 
-                    {/*Media Video */}
-                    <video
-                        src={props.mediaDetails.videoSource}
-                        autoPlay
-                        className="w-full"
-                    />
+                    {
+                        props.mediaDetails.videoSource ? (
+                            <video
+                                src={props.mediaDetails.videoSource}
+                                autoPlay
+                                loop
+                                muted
+                                className='w-full'
+                            />
+                        ) : (
+                            <iframe
+                                src={props.mediaDetails.trailerUrl}
+                                className='w-full h-[350px]'
+                            />
+                        )
+                    }
 
                     {/*Media title and age */}
                     <div className="flex items-center gap-5 text-white p-2">
@@ -73,10 +94,20 @@ const Details: React.FC<Props> = (props: Props) => {
                             {props.mediaDetails.duration}
                         </p>
 
-                        <div>
+                        <div
+                            onClick={handleTrailerDetail}
+                        >
                             <FaYoutube className='rounded-lg w-7 h-7 fill-red-500'
                             />
                         </div>
+                        {
+                            showTrailer && (
+                                <TrailerModal
+                                    setShowTrailer={setShowTrailer}
+                                    trailerUrl={props.mediaDetails.trailerUrl}
+                                />
+                            )
+                        }
                     </div>
 
                 </div>

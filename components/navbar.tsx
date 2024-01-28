@@ -46,8 +46,8 @@ const Navbar = (props: Props) => {
                         <div className='flex items-center justify-start gap-10'>
                             <NavbarItem label='Home' href='/' current />
                             <NavbarItem label='Genre' href='/' />
-                            <NavbarItem label='Movies' href='/movies' />
-                            <NavbarItem label='TV Shows' href='/shows' />
+                            <NavbarItem label='Movies' href='/movies-page' />
+                            <NavbarItem label='TV Shows' href='/shows-page' />
 
                         </div>
                         <div>

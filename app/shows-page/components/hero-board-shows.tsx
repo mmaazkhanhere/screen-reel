@@ -6,17 +6,19 @@ import useMovieBoard from '@/hooks/useMovieBoard'
 import LoadingSkeleton from '@/components/loading-skeletion'
 import PlayButton from '@/components/play-button'
 import Details from '@/components/details'
+import useShowBoards from '@/hooks/useShowsBoard'
 
 type Props = {}
 
-const HeroBoard = (props: Props) => {
+const HeroBoardShows = (props: Props) => {
 
     const [showDetails, setShowDetails] = useState<boolean>(false)
-    const { randomMedia } = useMovieBoard()
 
-    if (!randomMedia) {
+    const { randomShows } = useShowBoards()
+
+    if (!randomShows) {
         return (
-            <section className='max-w-[1600px] mx-auto'>
+            <section className='max-w-[1600px] mx-auto mt-10 lg:mt-20'>
                 <LoadingSkeleton />
             </section>
         )
@@ -28,13 +30,13 @@ const HeroBoard = (props: Props) => {
 
     return (
         <section
-            className='relative max-w-[1600px] mx-auto border border-black'
+            className='relative max-w-[1600px] mx-auto'
         >
             <div className='relative w-full'>
                 {
-                    randomMedia.videoSource ? (
+                    randomShows.videoSource ? (
                         <video
-                            src={randomMedia.videoSource}
+                            src={randomShows.videoSource}
                             autoPlay
                             loop
                             muted
@@ -42,7 +44,7 @@ const HeroBoard = (props: Props) => {
                         />
                     ) : (
                         <iframe
-                            src={randomMedia.trailerUrl}
+                            src={randomShows.trailerUrl}
                             className='w-full h-[70vw] lg:h-[40vw]'
                         />
                     )
@@ -56,12 +58,12 @@ const HeroBoard = (props: Props) => {
                 >
                     {/*Movie Details */}
                     <h2 className='hidden md:block text-4xl lg:text-5xl font-black'>
-                        {randomMedia.title}
+                        {randomShows.title}
                     </h2>
 
                     {/*Movie Overview */}
                     <p className='hidden md:block lg:text-lg font-medium mt-5'>
-                        {randomMedia.overview}
+                        {randomShows.overview}
                     </p>
 
                     {
@@ -73,7 +75,7 @@ const HeroBoard = (props: Props) => {
                     >
 
                         {
-                            randomMedia.videoSource && (
+                            randomShows.videoSource && (
                                 <PlayButton />
                             )
                         }
@@ -90,7 +92,7 @@ const HeroBoard = (props: Props) => {
                         {
                             showDetails && (
                                 <Details
-                                    mediaDetails={randomMedia}
+                                    mediaDetails={randomShows}
                                     setShowDetails={setShowDetails}
                                 />
                             )
@@ -108,4 +110,4 @@ const HeroBoard = (props: Props) => {
     )
 }
 
-export default HeroBoard
+export default HeroBoardShows

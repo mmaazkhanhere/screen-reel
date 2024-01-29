@@ -76,7 +76,7 @@ const HeroBoardShows = (props: Props) => {
 
                         {
                             randomShows.videoSource && (
-                                <PlayButton />
+                                <PlayButton mediaId={randomShows.id} />
                             )
                         }
 

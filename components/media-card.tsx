@@ -2,13 +2,16 @@ import { IMedia } from '@/interfaces'
 import Image from 'next/image'
 import React from 'react'
 import { PlayIcon } from '@heroicons/react/24/solid'
+import PlayButton from './play-button'
 
 type Props = {
     data: IMedia
 }
 
 const MediaCard = (props: Props) => {
+
     console.log(props.data)
+
     return (
         <section
             className='group mt-5'
@@ -33,7 +36,7 @@ const MediaCard = (props: Props) => {
                     group-hover:opacity-100 
                     transition-opacity'
                     >
-                        <PlayIcon className='w-14 h-14 text-red-500' />
+                        <PlayButton mediaId={props.data.id} />
                     </div>
                 </div>
 

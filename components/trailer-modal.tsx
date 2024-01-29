@@ -6,7 +6,7 @@ type Props = {
     setShowTrailer: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const TrailerModal = (props: Props) => {
+const TrailerModal = ({ trailerUrl, setShowTrailer }: Props) => {
     return (
         <div
             className="fixed inset-0 z-50 overflow-auto bg-black/70 flex 
@@ -17,7 +17,7 @@ const TrailerModal = (props: Props) => {
                 rounded-xl"
             >
                 <div
-                    onClick={() => props.setShowTrailer(false)}
+                    onClick={() => setShowTrailer(false)}
                     className="cursor-pointer absolute top-3 right-3 h-10 w-10 
                     rounded-full bg-black bg-opacity-70 flex items-center 
                     justify-center z-20"
@@ -26,7 +26,7 @@ const TrailerModal = (props: Props) => {
                 </div>
                 <div className='w-full'>
                     <iframe
-                        src={props.trailerUrl}
+                        src={trailerUrl}
                         className='w-full h-[600px]'
                     />
                 </div>

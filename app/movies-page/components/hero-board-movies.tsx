@@ -28,7 +28,7 @@ const HeroBoardMovies = (props: Props) => {
 
     return (
         <section
-            className='relative max-w-[1600px] mx-auto border border-black'
+            className='relative max-w-[1600px] mx-auto'
         >
             <div className='relative w-full'>
                 {
@@ -80,6 +80,7 @@ const HeroBoardMovies = (props: Props) => {
 
                         {/*Details Button */}
                         <button
+                            aria-label='Detail Button'
                             onClick={handleShowDetail}
                             className='bg-white text-red-500 hover:scale-95 
                             px-4 lg:px-6 py-1.5 lg:py-2 text-sm lg:text-base 

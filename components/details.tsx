@@ -11,7 +11,7 @@ type Props = {
     setShowDetails: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Details: React.FC<Props> = (props: Props) => {
+const Details: React.FC<Props> = ({ mediaDetails, setShowDetails }) => {
 
 
     const [showTrailer, setShowTrailer] = useState<boolean>(false)
@@ -31,7 +31,7 @@ const Details: React.FC<Props> = (props: Props) => {
             >
                 {/*Close Icon */}
                 <div
-                    onClick={() => props.setShowDetails(false)}
+                    onClick={() => setShowDetails(false)}
                     className="cursor-pointer absolute top-3 right-3 h-10 w-10 
                     rounded-full bg-black bg-opacity-70 flex items-center 
                     justify-center z-20"
@@ -44,9 +44,9 @@ const Details: React.FC<Props> = (props: Props) => {
                 w-full">
 
                     {
-                        props.mediaDetails.videoSource ? (
+                        mediaDetails.videoSource ? (
                             <video
-                                src={props.mediaDetails.videoSource}
+                                src={mediaDetails.videoSource}
                                 autoPlay
                                 loop
                                 muted
@@ -54,7 +54,7 @@ const Details: React.FC<Props> = (props: Props) => {
                             />
                         ) : (
                             <iframe
-                                src={props.mediaDetails.trailerUrl}
+                                src={mediaDetails.trailerUrl}
                                 className='w-full h-[350px]'
                             />
                         )
@@ -64,14 +64,14 @@ const Details: React.FC<Props> = (props: Props) => {
                     <div className="flex items-center gap-5 text-white p-2">
                         {/*Title */}
                         <h3 className='text-xl'>
-                            {props.mediaDetails.title}
+                            {mediaDetails.title}
                         </h3>
                         {/*Viewer Age */}
                         <div
                             className="border border-gray-400 text-xs md:text-xs 
                         text-gray-100 rounded-lg px-2 py-1"
                         >
-                            + {props.mediaDetails.age}
+                            + {mediaDetails.age}
                         </div>
                     </div>
 
@@ -81,17 +81,17 @@ const Details: React.FC<Props> = (props: Props) => {
                     p-2">
                         {/*Release Year */}
                         <p>
-                            {props.mediaDetails.releaseYear}
+                            {mediaDetails.releaseYear}
                         </p>
 
                         {/*Genre */}
                         <p>
-                            {props.mediaDetails.genre}
+                            {mediaDetails.genre}
                         </p>
 
                         {/*Duration */}
                         <p>
-                            {props.mediaDetails.duration}
+                            {mediaDetails.duration}
                         </p>
 
                         <div
@@ -106,7 +106,7 @@ const Details: React.FC<Props> = (props: Props) => {
                             showTrailer && (
                                 <TrailerModal
                                     setShowTrailer={setShowTrailer}
-                                    trailerUrl={props.mediaDetails.trailerUrl}
+                                    trailerUrl={mediaDetails.trailerUrl}
                                 />
                             )
                         }

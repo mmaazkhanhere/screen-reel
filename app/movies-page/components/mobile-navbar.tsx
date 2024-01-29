@@ -21,6 +21,7 @@ const MobileNavbar = (props: Props) => {
                 className='flex items-center justify-between px-2'
             >
                 <button
+                    aria-label='Menu Button'
                     onClick={toggleMenu}
                     className='flex items-center justify-center gap-1
                         p-2 md:p-3 text-sm rounded-lg bg-white text-black'
@@ -43,6 +44,7 @@ const MobileNavbar = (props: Props) => {
                     </Link>
                 </div>
                 <button
+                    aria-label='User Account Button'
                     className='bg-white rounded-full p-1 md:p-2'
                 >
                     <UserIcon className='fill-black w-6 md:w-8' />

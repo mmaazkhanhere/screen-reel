@@ -34,7 +34,7 @@ const WatchMovie = (props: Props) => {
         <div className='h-[40vw] w-screen bg-black max-w-[1600px] mx-auto'>
             <nav
                 className='fixed w-full flex items-center justify-start 
-                bg-black bg-opacity-70 p-4 max-w-[1580px] mx-auto gap-5'
+                bg-black bg-opacity-70 p-4 max-w-[1580px] mx-auto gap-5 z-10'
             >
                 <ArrowLeftIcon
                     onClick={() => router.push('/')}

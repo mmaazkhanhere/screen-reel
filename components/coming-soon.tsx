@@ -9,7 +9,7 @@ type Props = {
     title: string;
 };
 
-const ComingSoon: React.FC<Props> = (props: Props) => {
+const ComingSoon: React.FC<Props> = ({ title }: Props) => {
 
     const { comingSoon, isLoading } = useComingSoonList();
 
@@ -21,7 +21,7 @@ const ComingSoon: React.FC<Props> = (props: Props) => {
                 lg:mt-[150px] max-w-[1600px] mx-auto px-2 gap-4"
             >
                 <h2 className="text-2xl lg:text-4xl font-semibold">
-                    {props.title}
+                    {title}
                 </h2>
                 <LoadingSkeleton />
             </section>
@@ -34,7 +34,7 @@ const ComingSoon: React.FC<Props> = (props: Props) => {
             lg:mt-[100px] max-w-[1600px] mx-auto px-2'>
             <div className='flex items-center justify-center gap-5'>
                 {/*Title of Section */}
-                <h2 className='text-2xl lg:text-4xl font-semibold'>{props.title}</h2>
+                <h2 className='text-2xl lg:text-4xl font-semibold'>{title}</h2>
             </div>
 
             {/* Movies List */}

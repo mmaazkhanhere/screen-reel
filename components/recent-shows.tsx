@@ -10,7 +10,7 @@ type Props = {
     title: string;
 };
 
-const RecentShows: React.FC<Props> = (props: Props) => {
+const RecentShows: React.FC<Props> = ({ title }: Props) => {
 
     const { newShows, isLoading } = useNewShowsList('Show');
 
@@ -22,7 +22,7 @@ const RecentShows: React.FC<Props> = (props: Props) => {
                 lg:mt-[150px] max-w-[1600px] mx-auto px-2 gap-4"
             >
                 <h2 className="text-2xl lg:text-4xl font-semibold">
-                    {props.title}
+                    {title}
                 </h2>
                 <LoadingSkeleton />
             </section>
@@ -36,7 +36,7 @@ const RecentShows: React.FC<Props> = (props: Props) => {
             <div className='flex items-center justify-center gap-5'>
                 {/*Title of Section */}
                 <h2 className='text-2xl lg:text-4xl font-semibold'>
-                    {props.title}
+                    {title}
                 </h2>
             </div>
 

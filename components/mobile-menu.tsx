@@ -5,9 +5,9 @@ type Props = {
     visible?: boolean
 }
 
-const MobileMenu: React.FC<Props> = (props: Props) => {
+const MobileMenu: React.FC<Props> = ({ visible }: Props) => {
 
-    if (!props.visible) {
+    if (visible) {
         return null
     }
 
@@ -33,7 +33,7 @@ const MobileMenu: React.FC<Props> = (props: Props) => {
                     TV Shows
                 </Link>
                 <Link
-                    href='/'
+                    href='/genre'
                     className='py-1'
                 >
                     Genre

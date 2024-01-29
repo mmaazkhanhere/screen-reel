@@ -44,16 +44,17 @@ const Navbar = (props: Props) => {
 
                         {/*Navigation Bar */}
                         <div className='flex items-center justify-start gap-10'>
-                            <NavbarItem label='Home' href='/' current />
-                            <NavbarItem label='Genre' href='/' />
+                            <NavbarItem label='Home' href='/' />
+                            <NavbarItem label='Genre' href='/genre' />
                             <NavbarItem label='Movies' href='/movies-page' />
                             <NavbarItem label='TV Shows' href='/shows-page' />
 
                         </div>
                         <div>
                             <button
+                                aria-label='Login Button'
                                 className='bg-white px-6 py-2 rounded-lg text-black
-                            font-bold'
+                                font-bold'
                             >
                                 Login
                             </button>

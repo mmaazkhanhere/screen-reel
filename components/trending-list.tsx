@@ -10,7 +10,7 @@ type Props = {
   title: string;
 };
 
-const TrendingList: React.FC<Props> = (props: Props) => {
+const TrendingList: React.FC<Props> = ({ title }: Props) => {
 
   const [activeCategory, setActiveCategory] = useState('');
 
@@ -27,7 +27,7 @@ const TrendingList: React.FC<Props> = (props: Props) => {
         className="flex flex-col items-start justify-center mt-24 
       lg:mt-[250px] max-w-[1600px] mx-auto px-2 gap-4"
       >
-        <h2 className="text-2xl lg:text-4xl font-semibold">{props.title}</h2>
+        <h2 className="text-2xl lg:text-4xl font-semibold">{title}</h2>
         <LoadingSkeleton />
       </section>
     );
@@ -42,7 +42,7 @@ const TrendingList: React.FC<Props> = (props: Props) => {
 
         {/*Title of Section */}
         <h2 className='text-2xl lg:text-4xl font-semibold'>
-          {props.title}
+          {title}
         </h2>
 
         {/*Buttons to Switch Category */}

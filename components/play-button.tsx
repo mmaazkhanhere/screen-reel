@@ -8,14 +8,14 @@ type Props = {
     mediaId: string
 }
 
-const PlayButton: React.FC<Props> = (props: Props) => {
+const PlayButton: React.FC<Props> = ({ mediaId }: Props) => {
 
     const router = useRouter()
-    console.log(props.mediaId)
+
     return (
         <button
             aria-label='Play Button'
-            onClick={() => router.push(`/watch/${props.mediaId}`)}
+            onClick={() => router.push(`/watch/${mediaId}`)}
             className='bg-red-500 hover:scale-95 px-6 py-2 rounded-xl
             transform duration-300'
         >

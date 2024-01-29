@@ -82,6 +82,7 @@ const HeroBoardShows = (props: Props) => {
 
                         {/*Details Button */}
                         <button
+                            aria-label='Detail Button'
                             onClick={handleShowDetail}
                             className='bg-white text-red-500 hover:scale-95 
                             px-4 lg:px-6 py-1.5 lg:py-2 text-sm lg:text-base 

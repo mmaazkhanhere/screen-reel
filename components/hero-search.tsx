@@ -49,6 +49,7 @@ const HeroSearch = (props: Props) => {
 
                     {/*Search Button */}
                     <button
+                        aria-label='Search Button'
                         className='flex items-center justify-center lg:p-3
                         bg-red-500 rounded-full'
                     >

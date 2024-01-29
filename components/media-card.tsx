@@ -8,9 +8,7 @@ type Props = {
     data: IMedia
 }
 
-const MediaCard = (props: Props) => {
-
-    console.log(props.data)
+const MediaCard: React.FC<Props> = ({ data }) => {
 
     return (
         <section
@@ -25,8 +23,8 @@ const MediaCard = (props: Props) => {
 
                 <div className='relative'>
                     <Image
-                        src={props.data.posterUrl}
-                        alt={props.data.title}
+                        src={data.posterUrl}
+                        alt={data.title}
                         width={360}
                         height={360}
                         className='transition-opacity group-hover:opacity-80'
@@ -36,17 +34,17 @@ const MediaCard = (props: Props) => {
                     group-hover:opacity-100 
                     transition-opacity'
                     >
-                        <PlayButton mediaId={props.data.id} />
+                        <PlayButton mediaId={data.id} />
                     </div>
                 </div>
 
                 {/*Title of the movie or show */}
                 <h2 className='md:text-lg font-semibold mt-2'>
-                    {props.data.title}
+                    {data.title}
                 </h2>
                 {/*Detail of Movie */}
                 {
-                    props.data.category == 'Movie' && (
+                    data.category == 'Movie' && (
                         <div
                             className='flex items-center justify-between w-full'
                         >
@@ -54,14 +52,14 @@ const MediaCard = (props: Props) => {
                                 className='flex items-end justify-center 
                                 gap-2 lg:gap-4 text-xs md:text-sm text-gray-600'
                             >
-                                <span>{props.data.releaseYear}</span>
-                                <span>{props.data.duration}</span>
+                                <span>{data.releaseYear}</span>
+                                <span>{data.duration}</span>
                             </div>
                             <div
                                 className='border border-gray-400 text-xs md:text-sm 
                             text-gray-600 rounded-lg p-1'
                             >
-                                {props.data.category}
+                                {data.category}
                             </div>
                         </div>
                     )
@@ -69,7 +67,7 @@ const MediaCard = (props: Props) => {
                 {/*Detail of TV Show */}
 
                 {
-                    props.data.category == 'Show' && (
+                    data.category == 'Show' && (
                         <div
                             className='flex items-center justify-between w-full'
                         >
@@ -77,14 +75,14 @@ const MediaCard = (props: Props) => {
                                 className='flex items-end justify-center 
                                 gap-2 lg:gap-4 text-xs lg:text-sm text-gray-600'
                             >
-                                <span>SS {props.data.totalSeasons}</span>
-                                <span>EPS {props.data.episodes}</span>
+                                <span>SS {data.totalSeasons}</span>
+                                <span>EPS {data.episodes}</span>
                             </div>
                             <div
                                 className='border border-gray-400 text-sm 
                                 text-gray-600 rounded-lg p-1'
                             >
-                                {props.data.category}
+                                {data.category}
                             </div>
                         </div>
                     )

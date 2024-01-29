@@ -1,21 +1,26 @@
+"use client"
 import Link from 'next/link';
 import React from 'react'
+import { usePathname } from 'next/navigation';
 
 type Props = {
     label: string;
-    current?: boolean;
     href: string
 }
 
-const NavbarItem: React.FC<Props> = (props: Props) => {
+const NavbarItem: React.FC<Props> = ({ label, href }: Props) => {
+
+    const pathName = usePathname()
+    const isCurrent = pathName === href
+
     return (
         <Link
-            href={props.href}
+            href={href}
             className={`text-white font-semibold text-lg 
-            ${props.current ? 'underline decoration-2 underline-offset-2 cursor-default' :
+            ${isCurrent ? 'underline decoration-2 underline-offset-2 cursor-default' :
                     'cursor-pointer hover:underline hover:decoration-white'}`}
         >
-            {props.label}
+            {label}
         </Link>
     )
 }

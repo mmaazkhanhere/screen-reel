@@ -21,8 +21,8 @@ const MediaDetail: React.FC<Props> = ({ mediaDetail }: Props) => {
 
     return (
         <section
-            className='w-full shadow-xl p-4 rounded-2xl flex items-center gap-5
-            mt-10 px-2'
+            className='w-full shadow-xl p-4 rounded-2xl flex flex-col md:flex-row
+            items-center gap-5 mt-10 px-2'
         >
             {/*Image Section */}
 

@@ -1,29 +1,62 @@
 "use client"
 import React from 'react'
-import { usePathname } from 'next/navigation'
 import useWatchMedia from '@/hooks/useWatchMedia'
+import LoadingSkeleton from '@/components/loading-skeletion'
+import ComingSoonModal from '@/components/coming-soon-modal'
+import MediaDetail from '@/components/media-detail'
+
+import { usePathname, useRouter } from 'next/navigation'
+
 import { ArrowLeftIcon } from '@heroicons/react/24/solid'
 
 type Props = {}
 
 const WatchMovie = (props: Props) => {
 
+    const router = useRouter()
     const pathName = usePathname().split('/')
     const mediaId = pathName[pathName.length - 1];
 
     const { watchMedia } = useWatchMedia(mediaId)
 
+    if (!watchMedia) {
+        return (
+            <section className='w-screen h-screen p-5'>
+                <LoadingSkeleton />
+            </section>
+        )
+
+    }
+
     return (
-        <section className='h-screen w-screen bg-black max-w-[1600px] mx-auto'>
+        <section className='h-[40vw] w-screen bg-black max-w-[1600px] mx-auto'>
             <nav
-                className='fixed w-full flex-auto items-center justify-center
-            bg-black bg-opacity-70 p-4 max-w-[1600px] mx-auto'
+                className='fixed w-full flex items-center justify-start 
+                bg-black bg-opacity-70 p-4 max-w-[1600px] mx-auto gap-5'
             >
                 <ArrowLeftIcon
-                    className='w-10 fill-white cursor-pointer hover:opacity-80
+                    onClick={() => router.push('/')}
+                    className='w-8 fill-white cursor-pointer hover:opacity-80
                 transition'
                 />
+                {
+                    watchMedia.media.Source && (
+                        <p className='text-2xl font-bold text-white'>
+                            Watching: <span className='font-thin'>{watchMedia.media.title}</span>
+                        </p>
+                    )
+                }
+
             </nav>
+            {
+                watchMedia.media.videoSource === '' ? (
+                    <ComingSoonModal />
+                ) : (
+                    <video className='h-full w-full' src={watchMedia.media.videoSource} controls />
+                )
+            }
+
+            <MediaDetail mediaDetail={watchMedia.media} />
         </section>
     )
 }

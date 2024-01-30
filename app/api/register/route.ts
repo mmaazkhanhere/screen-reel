@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import prismadb from '@/libs/prismadb'
 import bcrypt from 'bcrypt'
+import { SignJWT } from "jose";
+import { getSecretKey } from "@/libs/auth";
 
 export const POST = async (request: NextRequest) => {
 
@@ -13,10 +15,12 @@ export const POST = async (request: NextRequest) => {
         const email = body.email
         const password = body.password
 
-        const existingUser = await prismadb.user.findUnique({
+        const existingUser = await prismadb.user.findFirst({
             where: {
-                username,
-                email
+                OR: [
+                    { username },
+                    { email }
+                ]
             }
         })
 
@@ -35,7 +39,24 @@ export const POST = async (request: NextRequest) => {
             }
         })
 
-        return NextResponse.json(user)
+        const token = await new SignJWT({
+            username: username,
+            role: 'user'
+        })
+            .setProtectedHeader({ alg: 'HS256' })
+            .setIssuedAt(new Date().getTime())
+            .setExpirationTime('2h')
+            .sign(getSecretKey())
+
+        const response = NextResponse.json({ user })
+
+        response.cookies.set({
+            name: 'authenticationToken',
+            value: token,
+            path: '/'
+        })
+
+        return response;
 
     } catch (error) {
         console.error(error)

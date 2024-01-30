@@ -17,7 +17,6 @@ const LoginPage = () => {
     const [variant, setVariant] = useState('login');
     const [loading, setLoading] = useState(false);
     const [matchingPassword, setMatchingPassword] = useState(true)
-
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleSwitchVariant = () => {
@@ -39,7 +38,7 @@ const LoginPage = () => {
             }
         }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
         setLoading(true);
 
@@ -49,31 +48,42 @@ const LoginPage = () => {
         else {
             try {
                 setLoading(true)
-                if (matchingPassword) {
-                    const response = await axios.post('/api/register', {
-                        name: name,
-                        username: username,
-                        email: email,
-                        password: password
-                    })
-
-                    if (response.status === 200) {
-                        router.push('/')
-                    }
-                    if (response.status === 422) {
-                        setErrorMessage('User already exists')
-                        setVariant('login')
-                    }
+                if (name == '' || username == '' || password == '' || email == '') {
+                    setErrorMessage('Missing values')
+                    setLoading(false)
                 }
                 else {
-                    setErrorMessage('Password do not match');
-                    setLoading(false)
+
+                    if (matchingPassword) {
+                        const response = await axios.post('/api/register', {
+                            name: name,
+                            username: username,
+                            email: email,
+                            password: password
+                        })
+
+                        if (response.status === 200) {
+                            router.push('/')
+                        }
+                    }
+                    else {
+                        setErrorMessage('Password do not match');
+                        setLoading(false)
+                    }
                 }
             } catch (error) {
                 console.error('ERROR WHILE PASSING USER DETAIL: ', error);
+                if (error.response?.status === 422) {
+                    setErrorMessage('User already exists');
+                    setLoading(false);
+                    setVariant('login');
+                } else {
+                    setErrorMessage('An error occurred during registration');
+                    setLoading(false);
+                }
             }
-        }
-    };
+        };
+    }
 
 
     return (
@@ -173,7 +183,7 @@ const LoginPage = () => {
                     }
 
                     {
-                        matchingPassword === false && (
+                        errorMessage !== '' && (
                             <p className="text-red-500">{errorMessage}</p>
                         )
                     }
@@ -208,4 +218,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default LoginPage

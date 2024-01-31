@@ -17,7 +17,14 @@ export const GET = async (request: NextRequest) => {
             }
         })
 
-        return NextResponse.json({ media })
+        const response = NextResponse.json({ media })
+
+        response.cookies.set({
+            name: 'movieId',
+            value: mediaId,
+        })
+
+        return response
 
     } catch (error) {
         console.error(error)

@@ -53,7 +53,12 @@ export const POST = async (request: NextRequest) => {
         response.cookies.set({
             name: 'authenticationToken',
             value: token,
-            path: '/watch'
+            path: '/'
+        })
+        response.cookies.set({
+            name: 'username',
+            value: username,
+            path: '/'
         })
 
         return response;

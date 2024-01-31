@@ -1,14 +1,20 @@
+"use client"
 import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+import Cookies from 'universal-cookie'
+import React, { useEffect, useState } from 'react'
 import NavbarItem from './navbar-item'
 import MobileNavbar from './mobile-navbar'
+import AccountButton from './account-button'
+import LoginButton from './login-button'
 
 type Props = {}
 
 const Navbar = (props: Props) => {
 
     const imageUrl: string = '/images/nav-hero.jpg'
+
+    const cookies = new Cookies()
+    const username = cookies.get('username')
 
     return (
         <React.Fragment>
@@ -26,7 +32,7 @@ const Navbar = (props: Props) => {
                 >
                     <nav
                         className='max-w-[1600px] mx-auto hidden lg:flex items-center 
-                        justify-between w-full'
+                        justify-between w-full '
                     >
                         {/*Logo */}
                         <div className='flex items-center justify-center'>
@@ -50,15 +56,9 @@ const Navbar = (props: Props) => {
                             <NavbarItem label='TV Shows' href='/shows-page' />
 
                         </div>
-                        <div>
-                            <button
-                                aria-label='Login Button'
-                                className='bg-white px-6 py-2 rounded-lg text-black
-                                font-bold'
-                            >
-                                Login
-                            </button>
-                        </div>
+                        {
+                            username ? <AccountButton username={username} /> : <LoginButton />
+                        }
                     </nav>
                 </div>
             </nav>

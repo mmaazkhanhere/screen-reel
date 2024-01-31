@@ -9,6 +9,7 @@ export const GET = async (request: NextRequest) => {
         const username = request.nextUrl.searchParams.get('username');
         const password = request.nextUrl.searchParams.get('password');
 
+
         if (!username || !password) {
             return new NextResponse('Missing details', { status: 406 })
         }
@@ -43,13 +44,15 @@ export const GET = async (request: NextRequest) => {
         const response = NextResponse.json({ existingUser })
 
         response.cookies.set({
-            name: 'authenticatedToken',
+            name: 'authenticationToken',
             value: token,
             path: '/watch'
         })
 
+        return response;
+
     } catch (error) {
-        console.error("ERROR IN LOGIN IN API: ", error);
-        return new NextResponse("Internal Server Error", { status: 500 });
+        console.error("ERROR IN LOGIN API: ", error);
+        return new NextResponse("ERROR IN LOGIN API", { status: 500 });
     }
 }

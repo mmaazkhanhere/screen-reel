@@ -40,20 +40,41 @@ const LoginPage = () => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        setLoading(true);
-
         if (variant === 'login') {
-            console.log('Login')
+
+            try {
+                setLoading(true)
+                if (username == '' || password == '') {
+                    setErrorMessage('Missing username or password')
+                    setLoading(false)
+                } else {
+                    const response =
+                        await fetch(`/api/login?username=${username}&password=${password}`, {
+                            method: 'GET'
+                        })
+                    if (response.status == 200) {
+                        const result = await response.json()
+                        setLoading(false)
+                        router.push('/')
+                    }
+                    else if (response.status == 401) {
+                        setErrorMessage('Incorrect password or username')
+                        setLoading(false)
+                    }
+                }
+            } catch (error) {
+                console.log("Error while login in:", error)
+                setLoading(false)
+            }
         }
         else {
             try {
                 setLoading(true)
                 if (name == '' || username == '' || password == '' || email == '') {
-                    setErrorMessage('Missing values')
+                    setErrorMessage('Missing information')
                     setLoading(false)
                 }
                 else {
-
                     if (matchingPassword) {
                         const response = await axios.post('/api/register', {
                             name: name,

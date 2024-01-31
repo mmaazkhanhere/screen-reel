@@ -24,8 +24,8 @@ const TrendingList: React.FC<Props> = ({ title }: Props) => {
     // Loading skeleton or placeholder
     return (
       <section
-        className="flex flex-col items-start justify-center mt-24 
-      lg:mt-[250px] max-w-[1600px] mx-auto px-2 gap-4"
+        className="flex flex-col items-start justify-center mt-20 
+      lg:mt-[120px] max-w-[1600px] mx-auto px-2 gap-4"
       >
         <h2 className="text-2xl lg:text-4xl font-semibold">{title}</h2>
         <LoadingSkeleton />
@@ -35,7 +35,7 @@ const TrendingList: React.FC<Props> = ({ title }: Props) => {
 
   return (
     <section
-      className='flex flex-col items-start justify-center mt-24 lg:mt-[250px] 
+      className='flex flex-col items-start justify-center mt-20 lg:mt-[120px] 
       max-w-[1600px] mx-auto px-2'
     >
       <div className='flex items-center justify-center gap-5'>

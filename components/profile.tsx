@@ -26,30 +26,45 @@ const Profile = ({ username, handleShowButton }: Props) => {
     }
 
     return (
-        <div
-            className="fixed inset-0 overflow-auto bg-black/70 flex 
-            items-end justify-center z-10"
+        <section
+            className='absolute right-5 top-[65px] z-50' // Adjust the z-index value as needed
         >
             <div
-                className="absolute bg-black/70 max-w-4xl mx-auto 
-                rounded-xl p-4 z-10"
+                className='bg-black max-w-2xl mx-auto rounded-xl
+                w-full text-white p-2 lg:p-4 z-50'
             >
-                <div
-                    className="cursor-pointer absolute top-3 right-3 h-10 w-10 
-                    rounded-full bg-black bg-opacity-70 flex items-center 
-                    justify-center z-20"
+                <XMarkIcon
+                    onClick={handleShowButton}
+                    className='text-white w-6'
+                />
+                <p className='text-sm lg:text-lg font-bold mt-5'>
+                    Name: &nbsp;
+                    <span className='text-xs lg:text-base font-medium'>
+                        {user.user.name}
+                    </span>
+                </p>
+                <p className='text-sm lg:text-lg font-bold'>
+                    Username: &nbsp;<span className='text-xs lg:text-base font-medium'>
+                        {user.user.username}
+                    </span>
+                </p>
+                <p className='text-sm lg:text-lg font-bold'>
+                    Email Address: &nbsp;
+                    <span className='text-xs lg:text-base font-medium'>
+                        {user.user.email}
+                    </span>
+                </p>
+
+                <button
+                    onClick={handleLogout}
+                    className='bg-red-500 p-2 text-sm lg:text-base 
+                    rounded-xl text-white mt-5 z-30'
                 >
-                    <XMarkIcon
-                        onClick={handleShowButton}
-                        className="text-white w-6" />
-                </div>
-                <div className='text-white '>
-                    <p>Hello World</p>
-                    <p>Hello World</p>
-                    <p>Hello World</p>
-                </div>
+                    Logout
+                </button>
             </div>
-        </div>
+
+        </section>
     )
 }
 

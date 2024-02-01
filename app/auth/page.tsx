@@ -172,12 +172,23 @@ const LoginPage = () => {
 
     return (
         <section
-            className="flex items-center justify-center w-screen h-screen 
+            className="flex items-center justify-center 
         max-w-[1600px] mx-auto"
         >
+            <div className='relative w-screen'>
+                <video
+                    src="/images/auth_background.mp4"
+                    loop
+                    autoPlay
+                    muted
+                    className='object-cover h-screen w-screen'
+                />
+            </div>
             <div
-                className="flex flex-col items-start justify-center border 
-            border-black rounded-xl px-8 py-4 transition duration-300">
+                className="absolute flex flex-col items-start justify-center 
+                border border-black rounded-xl px-8 py-4 transition 
+                duration-300 bg-white/70"
+            >
                 {/*Logo */}
                 <div className="flex items-center">
                     <Image

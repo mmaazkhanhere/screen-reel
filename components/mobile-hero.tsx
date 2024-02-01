@@ -28,7 +28,7 @@ const MobileHero = (props: Props) => {
             <MobileNavbar />
 
             <div
-                className='absolute top-0 left-0 z-40 flex flex-col items-center
+                className='absolute top-0 left-0 z-10 flex flex-col items-center
                 justify-end h-full mx-auto w-full'
             >
                 <div className='flex items-center justify-center w-full px-4'>

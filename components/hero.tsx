@@ -23,7 +23,8 @@ const Hero = (props: Props) => {
                     backgroundImage: `url(${imageUrl})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
-                }}>
+                }}
+            >
 
                 {/*Navbar */}
                 <Navbar />

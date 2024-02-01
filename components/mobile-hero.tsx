@@ -1,13 +1,19 @@
-import React from 'react'
-import MobileNavbar from './mobile-navbar'
-import { ArrowRightIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid'
+/*A react component that represents the mobile version of hero section that 
+consist of a non-functional search and a navbar displayed over the hero image  
+*/
 
+import React from 'react'
+
+import MobileNavbar from './mobile-navbar'
+
+import { ArrowRightIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 
 type Props = {}
 
 const MobileHero = (props: Props) => {
 
-    const imageUrl: string = '/images/mobile-nav.jpg'
+    const imageUrl: string = '/images/mobile-nav.jpg' /*Url of the image
+    that is displayed in the background */
 
     return (
         <section
@@ -18,13 +24,16 @@ const MobileHero = (props: Props) => {
                 backgroundPosition: 'center'
             }}
         >
+            {/*Mobile Navbar */}
             <MobileNavbar />
+
             <div
                 className='absolute top-0 left-0 z-40 flex flex-col items-center
                 justify-end h-full mx-auto w-full'
             >
                 <div className='flex items-center justify-center w-full px-4'>
-                    {/*Input */}
+
+                    {/*Search Input */}
                     <div className='relative max-w-[550px] w-full mx-2 '>
                         <input
                             type="text"
@@ -37,6 +46,7 @@ const MobileHero = (props: Props) => {
                             absolute left-3 top-2.5 md:top-3'
                         />
                     </div>
+
                     {/*Button */}
                     <button
                         aria-label='Search Button'

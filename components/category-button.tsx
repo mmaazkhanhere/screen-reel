@@ -1,9 +1,13 @@
-// CategoryButtons.tsx
+/*A category switching button that switches between movies and shows category
+and return the state to the trending component to fetch data based on whether
+movies or shows category is being choose */
+
 import React from 'react';
 
 type CategoryButtonsProps = {
-    activeCategory: string;
-    onCategoryChange: (category: string) => void;
+    activeCategory: string; //receives category active in the trending component 
+    onCategoryChange: (category: string) => void; /*function to handle changing 
+    the category */
 };
 
 const CategoryButtons: React.FC<CategoryButtonsProps> = ({
@@ -24,6 +28,7 @@ const CategoryButtons: React.FC<CategoryButtonsProps> = ({
             >
                 Movies
             </button>
+
             {/* Show Button */}
             <button
                 aria-label='Show Switch Button'

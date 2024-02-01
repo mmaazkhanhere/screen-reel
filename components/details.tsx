@@ -1,3 +1,6 @@
+/*A React component that renders a modal displaying detailed information about
+a specific media item. */
+
 "use client"
 
 import { IMedia } from '@/interfaces'
@@ -14,9 +17,11 @@ type Props = {
 const Details: React.FC<Props> = ({ mediaDetails, setShowDetails }) => {
 
 
-    const [showTrailer, setShowTrailer] = useState<boolean>(false)
+    const [showTrailer, setShowTrailer] = useState<boolean>(false)/*A state 
+    variable that handles whether to show trailer modal */
 
     const handleTrailerDetail = () => {
+        /*function that displays the trailer modal */
         setShowTrailer(true)
     }
 
@@ -42,7 +47,8 @@ const Details: React.FC<Props> = ({ mediaDetails, setShowDetails }) => {
                 {/*Media Details */}
                 <div className="flex-auto flex-col items-start justify-center 
                 w-full">
-
+                    {/*If media is released, start playing the media else
+                    display the trailer */}
                     {
                         mediaDetails.videoSource ? (
                             <video
@@ -94,6 +100,7 @@ const Details: React.FC<Props> = ({ mediaDetails, setShowDetails }) => {
                             {mediaDetails.duration}
                         </p>
 
+                        {/*Trailer Button */}
                         <div
                             className='hover:scale-95 transform duration-300
                             cursor-pointer'
@@ -102,6 +109,8 @@ const Details: React.FC<Props> = ({ mediaDetails, setShowDetails }) => {
                             <FaYoutube className='rounded-lg w-7 h-7 fill-red-500'
                             />
                         </div>
+                        {/*If show trailer state variable is true, the trailer
+                        modal component is rendered */}
                         {
                             showTrailer && (
                                 <TrailerModal

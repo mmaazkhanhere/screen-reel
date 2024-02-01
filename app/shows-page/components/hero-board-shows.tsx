@@ -1,3 +1,9 @@
+/*A hero section for showcasing random tv shows on a webpage. It uses
+useShowBoards hook to fetch random tv shows details and display a video or
+YouTube trailer in the background along with the movies title and overview.
+The component includes playing button (if the movie is released) and detail
+button that displays a detailed view about the tv show*/
+
 "use client"
 
 import React, { useState } from 'react'
@@ -12,11 +18,13 @@ type Props = {}
 
 const HeroBoardShows = (props: Props) => {
 
-    const [showDetails, setShowDetails] = useState<boolean>(false)
+    const [showDetails, setShowDetails] = useState<boolean>(false) /*State
+    variable to handle detail  */
 
-    const { randomShows } = useShowBoards()
+    const { randomShows, isLoading } = useShowBoards() /*Fetch random shows */
 
-    if (!randomShows) {
+    if (isLoading) {
+        /*While shows are still being fetched, display a loading skeleton */
         return (
             <section className='max-w-[1600px] mx-auto mt-10 lg:mt-20'>
                 <LoadingSkeleton />
@@ -24,7 +32,7 @@ const HeroBoardShows = (props: Props) => {
         )
     }
 
-    const handleShowDetail = () => {
+    const handleShowDetail = () => { /*function to handle show detail description */
         setShowDetails(true)
     }
 
@@ -33,6 +41,8 @@ const HeroBoardShows = (props: Props) => {
             className='relative max-w-[1600px] mx-auto'
         >
             <div className='relative w-full'>
+                {/*Display the tv show if it is released. If it is not 
+                released, display its trailer */}
                 {
                     randomShows.videoSource ? (
                         <video
@@ -90,6 +100,8 @@ const HeroBoardShows = (props: Props) => {
                         >
                             Details
                         </button>
+                        {/*Display detail about the tv show when the user clicks
+                        on detail button */}
                         {
                             showDetails && (
                                 <Details

@@ -1,10 +1,13 @@
+/*A React functional component that display a detailed information about a 
+specific media item. Used on the watch page */
+
 import { IMedia } from '@/interfaces'
+
 import Image from 'next/image'
 import React, { useState } from 'react'
 
 import { VideoCameraIcon } from '@heroicons/react/24/solid'
-import { HandThumbUpIcon } from '@heroicons/react/20/solid'
-import { HandThumbDownIcon } from '@heroicons/react/20/solid'
+
 import TrailerModal from './trailer-modal'
 
 type Props = {
@@ -13,10 +16,11 @@ type Props = {
 
 const MediaDetail: React.FC<Props> = ({ mediaDetail }: Props) => {
 
-    const [showTrailer, setShowTrailer] = useState<boolean>(false);
+    const [showTrailer, setShowTrailer] = useState<boolean>(false); /*State 
+    variable for whether to show trailer*/
 
     const handleShowTrailer = () => {
-        setShowTrailer(!showTrailer);
+        setShowTrailer(!showTrailer); //handles the showing trailer function
     }
 
     return (
@@ -25,7 +29,6 @@ const MediaDetail: React.FC<Props> = ({ mediaDetail }: Props) => {
             items-center gap-5 mt-10 px-2'
         >
             {/*Image Section */}
-
             <div>
                 <Image
                     src={mediaDetail.posterUrl}
@@ -57,6 +60,7 @@ const MediaDetail: React.FC<Props> = ({ mediaDetail }: Props) => {
                         <span className='text-xs'>Trailer</span>
                     </button>
 
+                    {/*Show trailer when the showTrailer state variable is true */}
                     {
                         showTrailer && (
                             <TrailerModal
@@ -94,6 +98,7 @@ const MediaDetail: React.FC<Props> = ({ mediaDetail }: Props) => {
                         </span>
                     </p>
 
+                    {/*Genre */}
                     <p className='font-semibold text-sm'>
                         Genre:&nbsp;
                         <span className='text-xs font-normal'>
@@ -125,7 +130,7 @@ const MediaDetail: React.FC<Props> = ({ mediaDetail }: Props) => {
                         )
                     }
 
-                    {/*Episode */}
+                    {/*Episode in a Season */}
                     {
                         mediaDetail.category == 'Show' && (
                             <p className='font-semibold text-sm'>

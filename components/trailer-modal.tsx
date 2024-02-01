@@ -1,5 +1,8 @@
-import { XMarkIcon } from '@heroicons/react/24/solid'
+/*A react component that serves as a modal for displaying a youtube trailer */
+
 import React from 'react'
+
+import { XMarkIcon } from '@heroicons/react/24/solid'
 
 type Props = {
     trailerUrl: string;
@@ -16,6 +19,7 @@ const TrailerModal = ({ trailerUrl, setShowTrailer }: Props) => {
                 className="relative bg-black/60 w-full max-w-4xl mx-auto 
                 rounded-xl"
             >
+                {/*Close button */}
                 <div
                     onClick={() => setShowTrailer(false)}
                     className="cursor-pointer absolute top-3 right-3 h-10 w-10 
@@ -24,6 +28,8 @@ const TrailerModal = ({ trailerUrl, setShowTrailer }: Props) => {
                 >
                     <XMarkIcon className="text-white w-6" />
                 </div>
+
+                {/*Trailer */}
                 <div className='w-full'>
                     <iframe
                         src={trailerUrl}

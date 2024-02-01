@@ -1,3 +1,7 @@
+/*A react component designed to display a list of trending media content
+based on different categories. It utilizes useMediaList custom hook to fetch
+media based on the active category */
+
 "use client"
 import { IMedia } from '@/interfaces';
 import React, { useState } from 'react';
@@ -12,16 +16,19 @@ type Props = {
 
 const TrendingList: React.FC<Props> = ({ title }: Props) => {
 
-  const [activeCategory, setActiveCategory] = useState('');
+  const [activeCategory, setActiveCategory] = useState(''); /*state variable to
+  control the active category */
 
   const handleCategoryChange = (category: string) => {
+    /*function the sets the value of activeCategory state variable */
     setActiveCategory(category);
   };
 
-  const { media } = useMediaList(activeCategory);
+  const { media, isLoading } = useMediaList(activeCategory); /*fetch the media
+  using useMediaList hook */
 
-  if (!media) {
-    // Loading skeleton or placeholder
+  if (isLoading) {
+    {/*While data being fetched, display a loading skeleton */ }
     return (
       <section
         className="flex flex-col items-start justify-center mt-20 

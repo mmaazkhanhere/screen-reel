@@ -1,3 +1,7 @@
+/*A react component used for rendering navigation items within a navigation bar.
+It dynamically adjusts styling based whether the current page matches the 
+specified  href. If it matches, the label is underlined */
+
 "use client"
 import Link from 'next/link';
 import React from 'react'
@@ -10,8 +14,9 @@ type Props = {
 
 const NavbarItem: React.FC<Props> = ({ label, href }: Props) => {
 
-    const pathName = usePathname()
-    const isCurrent = pathName === href
+    const pathName = usePathname() //to get the current pathname
+    const isCurrent = pathName === href /*checks whether the current url
+    is same as the href specified and assign its value to isCurrent variable */
 
     return (
         <Link

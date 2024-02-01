@@ -1,3 +1,5 @@
+/*React component that display list of popular tv shows */
+
 "use client"
 import { IMedia } from '@/interfaces';
 import React from 'react';
@@ -6,7 +8,7 @@ import useMediaList from '@/hooks/useMediaList';
 import LoadingSkeleton from '@/components/loading-skeletion';
 
 type Props = {
-    title: string;
+    title: string; //receives title as an argument
 };
 
 const PopularShows: React.FC<Props> = (props: Props) => {
@@ -14,7 +16,7 @@ const PopularShows: React.FC<Props> = (props: Props) => {
     const { media } = useMediaList('Show');
 
     if (!media) {
-        // Loading skeleton or placeholder
+        //while media is being fetched, display a loading skeleton
         return (
             <section
                 className="flex flex-col items-start justify-center mt-16 
@@ -40,11 +42,12 @@ const PopularShows: React.FC<Props> = (props: Props) => {
 
             </div>
 
-            {/* Movies List */}
+            {/* TV Shows List */}
             <div
                 className='flex gap-5 lg:gap-10 flex-wrap justify-start 
                 items-center w-full mt-5'
             >
+                {/*TV Shows Media Card */}
                 {
                     media.media.map((item: IMedia) => (
                         <MediaCard key={item.id} data={item} />

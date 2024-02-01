@@ -1,3 +1,6 @@
+/*A react component that displays a coming soon message if the movie or tv
+show is not released yet. Used in the watch page */
+
 import React from 'react'
 
 type Props = {}

@@ -1,3 +1,8 @@
+/*A responsive mobile navigation bar that includes a toggle menu button, 
+a clickable logo button that redirects to homepage, and either an Account
+or Login Button based on user authentication status. The menu reveals additional
+navigation options when activated, enhancing the mobile user experience*/
+
 "use client"
 
 import Image from 'next/image'
@@ -15,12 +20,14 @@ type Props = {}
 
 const MobileNavbar = (props: Props) => {
 
-    const [showMenu, setShowMenu] = useState(false)
+    const [showMenu, setShowMenu] = useState(false) /*state variable for showing
+    the menu */
 
     const cookies = new Cookies()
-    const username = cookies.get('username')
+    const username = cookies.get('username') /*get the username from the cookies */
 
     const toggleMenu = () => {
+        /*function that hides or show the sub menu */
         setShowMenu(!showMenu)
     }
 
@@ -33,6 +40,7 @@ const MobileNavbar = (props: Props) => {
                 <div
                     className='flex items-center justify-between px-2'
                 >
+                    {/*Menu button */}
                     <button
                         aria-label='Menu Button'
                         onClick={toggleMenu}
@@ -45,6 +53,8 @@ const MobileNavbar = (props: Props) => {
                         />
                         Menu
                     </button>
+
+                    {/*Logo */}
                     <div>
                         <Link href='/'>
                             <Image
@@ -56,12 +66,17 @@ const MobileNavbar = (props: Props) => {
                             />
                         </Link>
                     </div>
+
+                    {/*Account/Login Button */}
+                    {/*If username exists, display account button else login 
+                    button */}
                     {
                         username ? <AccountButton username={username} /> : <LoginButton />
                     }
                 </div>
 
             </nav>
+            {/*show sub menu if the showMenu state variable is true */}
             {
                 showMenu && (
                     <div>

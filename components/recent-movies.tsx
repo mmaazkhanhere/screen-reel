@@ -1,3 +1,7 @@
+/*A react component that displays a list of recently released movies. It utilizes
+a useNewMoviesList custom hook to fetch the list of new movies and manages the
+loading state. */
+
 "use client"
 import { IMedia } from '@/interfaces';
 import React from 'react';
@@ -11,10 +15,11 @@ type Props = {
 
 const RecentMovies: React.FC<Props> = ({ title }: Props) => {
 
-    const { newMovies, isLoading } = useNewMoviesList('Movie');
+    const { newMovies, isLoading } = useNewMoviesList('Movie'); /*Fetch 
+    new movies released to custom hook useNewMoviesList */
 
     if (isLoading) {
-        // Loading skeleton or placeholder
+        {/*While the data is being fetched display a loading skeleton */ }
         return (
             <section
                 className="flex flex-col items-start justify-center mt-24 
@@ -32,8 +37,9 @@ const RecentMovies: React.FC<Props> = ({ title }: Props) => {
         <section
             className='flex flex-col items-start justify-center mt-24 
             lg:mt-[100px] max-w-[1600px] mx-auto px-2'>
+
+            {/*Title of Section */}
             <div className='flex items-center justify-center gap-5'>
-                {/*Title of Section */}
                 <h2 className='text-2xl lg:text-4xl font-semibold'>{title}</h2>
             </div>
 

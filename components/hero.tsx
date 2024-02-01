@@ -1,7 +1,11 @@
+/*A react component that represents the hero section that consist of a 
+non-functional search and a navbar displayed over the hero image  */
+
 import React from 'react'
 
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
+
 import Navbar from './navbar'
 import MobileHero from './mobile-hero'
 
@@ -20,6 +24,8 @@ const Hero = (props: Props) => {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
                 }}>
+
+                {/*Navbar */}
                 <Navbar />
                 <div
                     className='absolute text-center flex flex-col items-center 
@@ -36,6 +42,7 @@ const Hero = (props: Props) => {
                         >
                             Unveil the Cinematic Experience
                         </h1>
+
                         {/*Hero Sub-Heading */}
                         <h2 className='text-xl uppercase text-white'>
                             ScreenReel – Where Every Frame Tells a Story.
@@ -45,6 +52,7 @@ const Hero = (props: Props) => {
                     {/*Search bar */}
                     <div className='flex flex-1 items-center justify-center gap-5 
                     w-full max-w-[650px] mt-5'>
+
                         {/*Input */}
                         <div className='relative w-full mx-2'>
                             <input
@@ -72,6 +80,7 @@ const Hero = (props: Props) => {
                     </div>
                 </div>
             </section>
+            {/*Mobile Hero */}
             <section>
                 <MobileHero />
             </section>

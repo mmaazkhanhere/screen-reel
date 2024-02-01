@@ -1,3 +1,5 @@
+/*A react component of play button that redirects to the watch page, passing
+along the media id, to watch the move */
 "use client"
 
 import React from 'react'

@@ -1,3 +1,6 @@
+/*A login button component that redirects the user to authentication page
+when clicked on */
+
 "use client"
 
 import React from 'react'

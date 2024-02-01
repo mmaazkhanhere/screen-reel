@@ -21,9 +21,9 @@ const HeroBoardMovies = (props: Props) => {
     const [showDetails, setShowDetails] = useState<boolean>(false)/*state variable
     to handle whether to show details or not */
 
-    const { randomMovie } = useMovieBoard() /*custom hook to fetch random movie */
+    const { randomMovie, isLoading } = useMovieBoard() /*custom hook to fetch random movie */
 
-    if (!randomMovie) {
+    if (isLoading) {
         /*If no random movie exists (still fetching the data), display a loading
         skeleton component*/
         return (

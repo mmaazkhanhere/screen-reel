@@ -1,3 +1,6 @@
+/*A react component designed to display a loading skeleton or placeholder UI.
+It is used to indicate that the data is being fetched*/
+
 import React from 'react'
 
 type Props = {}

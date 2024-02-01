@@ -1,11 +1,15 @@
+/*A react component that represents a media card displaying information about
+a specific media item, which could be a movie or a TV show. */
+
 import { IMedia } from '@/interfaces'
+
 import Image from 'next/image'
 import React from 'react'
-import { PlayIcon } from '@heroicons/react/24/solid'
+
 import PlayButton from './play-button'
 
 type Props = {
-    data: IMedia
+    data: IMedia //receives the media data prop
 }
 
 const MediaCard: React.FC<Props> = ({ data }) => {
@@ -29,6 +33,7 @@ const MediaCard: React.FC<Props> = ({ data }) => {
                         height={360}
                         className='transition-opacity group-hover:opacity-80'
                     />
+                    {/*Play Button */}
                     <div className='absolute inset-0 flex items-center 
                     justify-center hover:bg-black/50 opacity-0 
                     group-hover:opacity-100 
@@ -52,9 +57,13 @@ const MediaCard: React.FC<Props> = ({ data }) => {
                                 className='flex items-end justify-center 
                                 gap-2 lg:gap-4 text-xs md:text-sm text-gray-600'
                             >
+                                {/*Release year */}
                                 <span>{data.releaseYear}</span>
+                                {/*Duration */}
                                 <span>{data.duration}</span>
                             </div>
+
+                            {/*Category of the media */}
                             <div
                                 className='border border-gray-400 text-xs md:text-sm 
                             text-gray-600 rounded-lg p-1'
@@ -75,9 +84,13 @@ const MediaCard: React.FC<Props> = ({ data }) => {
                                 className='flex items-end justify-center 
                                 gap-2 lg:gap-4 text-xs lg:text-sm text-gray-600'
                             >
+                                {/*Total seasons */}
                                 <span>SS {data.totalSeasons}</span>
+                                {/*Total episodes in a season */}
                                 <span>EPS {data.episodes}</span>
                             </div>
+
+                            {/*Category of the media */}
                             <div
                                 className='border border-gray-400 text-sm 
                                 text-gray-600 rounded-lg p-1'

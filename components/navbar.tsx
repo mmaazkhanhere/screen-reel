@@ -1,9 +1,9 @@
-"use client"
+
 import Image from 'next/image'
 import Cookies from 'universal-cookie'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+
 import NavbarItem from './navbar-item'
-import MobileNavbar from './mobile-navbar'
 import AccountButton from './account-button'
 import LoginButton from './login-button'
 

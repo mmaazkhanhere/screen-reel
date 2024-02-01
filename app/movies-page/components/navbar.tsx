@@ -1,11 +1,19 @@
-import NavbarItem from '@/components/navbar-item'
 import Image from 'next/image'
 import React from 'react'
+import Cookies from 'universal-cookie'
+
+import NavbarItem from '@/components/navbar-item'
 import MobileNavbar from './mobile-navbar'
+import AccountButton from '@/components/account-button'
+import LoginButton from '@/components/login-button'
 
 type Props = {}
 
 const Navbar = (props: Props) => {
+
+    const cookies = new Cookies()
+    const username = cookies.get('username')
+
     return (
         <React.Fragment>
             <nav
@@ -35,13 +43,9 @@ const Navbar = (props: Props) => {
 
                 </div>
                 <div>
-                    <button
-                        aria-label='Login Button'
-                        className='bg-white px-6 py-2 rounded-lg text-black
-                            font-bold'
-                    >
-                        Login
-                    </button>
+                    {
+                        username ? <AccountButton username={username} /> : <LoginButton />
+                    }
                 </div>
             </nav>
             <nav

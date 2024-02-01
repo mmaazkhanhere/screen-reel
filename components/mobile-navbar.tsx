@@ -3,8 +3,9 @@
 import Image from 'next/image'
 import Cookies from 'universal-cookie'
 import React, { useState } from 'react'
+
 import { Bars3Icon } from '@heroicons/react/20/solid'
-import { UserIcon } from '@heroicons/react/24/solid'
+
 import MobileMenu from './mobile-menu'
 import Link from 'next/link'
 import AccountButton from './account-button'
@@ -22,8 +23,6 @@ const MobileNavbar = (props: Props) => {
     const toggleMenu = () => {
         setShowMenu(!showMenu)
     }
-
-    console.log(showMenu)
 
     return (
         <React.Fragment>

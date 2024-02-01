@@ -1,15 +1,22 @@
 import React, { useState } from 'react'
-import { Bars3Icon } from '@heroicons/react/20/solid'
-import { UserIcon } from '@heroicons/react/24/solid'
-import MobileMenu from '@/components/mobile-menu'
 import Link from 'next/link'
 import Image from 'next/image'
+import Cookies from 'universal-cookie'
+
+import { Bars3Icon } from '@heroicons/react/20/solid'
+
+import MobileMenu from '@/components/mobile-menu'
+import AccountButton from '@/components/account-button'
+import LoginButton from '@/components/login-button'
 
 type Props = {}
 
 const MobileNavbar = (props: Props) => {
 
     const [showMenu, setShowMenu] = useState(false)
+
+    const cookies = new Cookies()
+    const username = cookies.get('username')
 
     const toggleMenu = () => {
         setShowMenu(!showMenu)
@@ -43,12 +50,9 @@ const MobileNavbar = (props: Props) => {
                         />
                     </Link>
                 </div>
-                <button
-                    aria-label='User Account Button'
-                    className='bg-white rounded-full p-1 md:p-2'
-                >
-                    <UserIcon className='fill-black w-6 md:w-8' />
-                </button>
+                {
+                    username ? <AccountButton username={username} /> : <LoginButton />
+                }
             </div>
             {
                 showMenu && (

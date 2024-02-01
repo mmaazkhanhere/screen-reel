@@ -23,19 +23,33 @@ const MobileHero = (props: Props) => {
                 className='absolute top-0 left-0 z-40 flex flex-col items-center
                 justify-end h-full mx-auto w-full'
             >
-                {/*Input */}
-                <div className='relative max-w-[550px] w-full mx-2 px-4'>
-                    <input
-                        type="text"
-                        className='px-4 lg:px-2 py-2 md:py-3 lg:py-4 rounded-lg 
-                            lg:rounded-xl w-full shadow-xl pl-10 lg:pl-12'
-                        placeholder="Search..."
-                    />
-                    <MagnifyingGlassIcon
-                        className='w-5 md:w-6 fill-black text-black 
-                            absolute left-6 top-2.5 md:top-3 lg:top-4'
-                    />
+                <div className='flex items-center justify-center w-full px-4'>
+                    {/*Input */}
+                    <div className='relative max-w-[550px] w-full mx-2 '>
+                        <input
+                            type="text"
+                            className='px-4 py-2 md:py-3 rounded-lg 
+                            lg:rounded-xl w-full shadow-xl pl-10'
+                            placeholder="Search..."
+                        />
+                        <MagnifyingGlassIcon
+                            className='w-5 md:w-6 fill-black text-black 
+                            absolute left-3 top-2.5 md:top-3'
+                        />
+                    </div>
+                    {/*Button */}
+                    <button
+                        aria-label='Search Button'
+                        className='flex items-center justify-center p-2
+                        bg-red-500 rounded-full'
+                    >
+                        <ArrowRightIcon
+                            className='fill-white text-white w-7'
+                        />
+                    </button>
+
                 </div>
+
             </div>
         </section>
     )

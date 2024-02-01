@@ -1,3 +1,6 @@
+/*A responsive component that displays the popular movies. Movies are fetched
+using custom useMediaList hook */
+
 "use client"
 import { IMedia } from '@/interfaces';
 import React from 'react';
@@ -11,10 +14,10 @@ type Props = {
 
 const PopularMovies: React.FC<Props> = (props: Props) => {
 
-    const { media } = useMediaList('Movie');
+    const { media } = useMediaList('Movie'); /*fetch movie data */
 
     if (!media) {
-        // Loading skeleton or placeholder
+        /*If media is still being fetched, a loading skeleton is displayed */
         return (
             <section
                 className="flex flex-col items-start justify-center mt-16 
@@ -45,6 +48,7 @@ const PopularMovies: React.FC<Props> = (props: Props) => {
                 className='flex gap-5 lg:gap-10 flex-wrap justify-start 
                 items-center w-full mt-5'
             >
+                {/*Movie Card */}
                 {
                     media.media.map((item: IMedia) => (
                         <MediaCard key={item.id} data={item} />

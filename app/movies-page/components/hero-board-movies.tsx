@@ -1,6 +1,13 @@
+/*A hero section for showcasing random movies on a webpage. It uses
+useMovieBoard hook to fetch random movie details and display a video or
+YouTube trailer in the background along with the movies title and overview.
+The component includes playing button (if the movie is released) and detail
+button that displays a detailed view about the movie*/
+
 "use client"
 
 import React, { useState } from 'react'
+
 import Navbar from '@/app/movies-page/components/navbar'
 import useMovieBoard from '@/hooks/useMovieBoard'
 import LoadingSkeleton from '@/components/loading-skeletion'
@@ -11,10 +18,14 @@ type Props = {}
 
 const HeroBoardMovies = (props: Props) => {
 
-    const [showDetails, setShowDetails] = useState<boolean>(false)
-    const { randomMovie } = useMovieBoard()
+    const [showDetails, setShowDetails] = useState<boolean>(false)/*state variable
+    to handle whether to show details or not */
+
+    const { randomMovie } = useMovieBoard() /*custom hook to fetch random movie */
 
     if (!randomMovie) {
+        /*If no random movie exists (still fetching the data), display a loading
+        skeleton component*/
         return (
             <section className='max-w-[1600px] mx-auto mt-10 lg:mt-20'>
                 <LoadingSkeleton />
@@ -22,7 +33,7 @@ const HeroBoardMovies = (props: Props) => {
         )
     }
 
-    const handleShowDetail = () => {
+    const handleShowDetail = () => { /*function to handle showing movie detail */
         setShowDetails(true)
     }
 
@@ -31,6 +42,8 @@ const HeroBoardMovies = (props: Props) => {
             className='relative max-w-[1600px] mx-auto'
         >
             <div className='relative w-full'>
+                {/*Video Banner */}
+                {/*Displays movie if released or trailer if it is not released */}
                 {
                     randomMovie.videoSource ? (
                         <video
@@ -64,14 +77,11 @@ const HeroBoardMovies = (props: Props) => {
                         {randomMovie.overview}
                     </p>
 
-                    {
-
-                    }
                     {/*Buttons */}
                     <div
                         className='hidden md:flex items-center justify-start gap-5 mt-5'
                     >
-
+                        {/*If movie is released then display the watch button */}
                         {
                             randomMovie.videoSource && (
                                 <PlayButton mediaId={randomMovie.id} />
@@ -88,6 +98,9 @@ const HeroBoardMovies = (props: Props) => {
                         >
                             Details
                         </button>
+                        {/*If user clicks on detail button (sets the showDetail
+                            state variable to true), display the Detail
+                            component */}
                         {
                             showDetails && (
                                 <Details

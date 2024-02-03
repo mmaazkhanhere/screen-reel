@@ -150,7 +150,7 @@ const LoginPage = () => {
                         setLoading(false)
                     }
                 }
-            } catch (error) {
+            } catch (error: any) {
                 console.error('ERROR WHILE PASSING USER DETAIL: ', error);
 
                 if (error.response?.status === 422) {

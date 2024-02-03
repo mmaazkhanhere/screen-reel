@@ -31,6 +31,7 @@ const Profile = ({ username, handleShowButton }: Props) => {
 
         const cookies = new Cookies();
         const token = cookies.remove("authenticationToken");
+        const username = cookies.remove("username")
         router.push('/auth');
     }
 

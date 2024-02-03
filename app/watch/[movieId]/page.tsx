@@ -53,6 +53,7 @@ const WatchMovie = (props: Props) => {
     const { watchMedia, isLoading } = useWatchMedia(mediaId) /*The media id is passed to 
     useWatchMedia custom hook to fetch the media detail */
 
+
     if (isLoading) {
         /*While watchMedia is being fetched, display LoadingSkeleton */
         return (
@@ -85,9 +86,8 @@ const WatchMovie = (props: Props) => {
                                 className='w-8 fill-white cursor-pointer hover:opacity-80
                                 transition'
                             />
-                            {/*Media Title */}{
-                                {/*Displayed only if it is released */ }
-                            }
+                            {/*Media Title */}
+                            {/*Displayed only if it is released */}
                             {
                                 watchMedia.media.videoSource && (
                                     <p className='text-lg lg:text-2xl font-bold text-white'>

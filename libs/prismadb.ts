@@ -2,10 +2,14 @@
 the client globally, especially the product environment to enhance database
 connection efficiency */
 
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from "@prisma/client"
 
-const client = global.prismadb || new PrismaClient()
+declare global {
+    var prisma: PrismaClient | undefined
+}
 
-if (process.env.NODE_ENV === 'production') global.prismadb = client
+const prismadb = globalThis.prisma || new PrismaClient();
 
-export default client 
+if (process.env.NODE_ENV !== "production") globalThis.prisma = prismadb;
+
+export default prismadb;

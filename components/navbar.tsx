@@ -2,6 +2,8 @@
 or login button based on user authentication. Utilizes a mobile navbar component
 that is displayed in small screen while the component is hidden in smaller screen */
 
+"use client"
+
 import Image from 'next/image'
 import Cookies from 'universal-cookie'
 import React from 'react'

@@ -26,8 +26,6 @@ const MobileNavbar = (props: Props) => {
     const cookies = new Cookies()
     const username = cookies.get('username') /*get the username from the cookies */
 
-    console.log(username)
-
     const toggleMenu = () => {
         /*function that hides or show the sub menu */
         setShowMenu(!showMenu)

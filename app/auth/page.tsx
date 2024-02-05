@@ -77,7 +77,8 @@ const LoginPage = () => {
                     appropriate error message */
                     setErrorMessage('Missing username or password')
                     setLoading(false) /*Set loading to false */
-                } else {
+                }
+                else {
                     /*If username and password are provided. then this code is
                     run */
 
@@ -103,6 +104,11 @@ const LoginPage = () => {
                         setErrorMessage('Incorrect password or username')
                         setLoading(false)
                     }
+                    else if (response.status == 404) {
+                        setErrorMessage("User doesn't exist")
+                        setLoading(false)
+                        setVariant('register')
+                    }
                 }
             } catch (error) {
                 /*console log any error that occurs while logging in */
@@ -117,7 +123,7 @@ const LoginPage = () => {
                 setLoading(true)/*loading state is set true to prevent multiple
                 clicks */
 
-                if (name == '' || username == '' || password == '' || email == '') {
+                if (name == '' || username == '' || password == '' || email == '' || confirmPassword == '') {
                     /*Checks if any detail is missing and if so return error
                     message */
                     setErrorMessage('Missing information')

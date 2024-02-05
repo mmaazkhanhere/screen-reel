@@ -24,11 +24,11 @@ const TrendingList: React.FC<Props> = ({ title }: Props) => {
     setActiveCategory(category);
   };
 
-  const { media, isLoading } = useMediaList(activeCategory); /*fetch the media
+  const { media } = useMediaList(activeCategory); /*fetch the media
   using useMediaList hook */
 
-  if (isLoading) {
-    {/*While data being fetched, display a loading skeleton */ }
+  if (!media) {
+    /*While data being fetched, display a loading skeleton */
     return (
       <section
         className="flex flex-col items-start justify-center mt-20 
